@@ -5,6 +5,10 @@ Expanding Button Bar is a simple iOS widget created by Ryan Nystrom. The widget 
 
 Inspiration for this button bar came from the app Path in which they practically removed the need for a UITabBar by adding a button in the bottom left. The goal with this widget is to replicate that functionality and give you the option of using buttons that animate in and out to reclaim some much needed UI space.
 
+(Main button)[https://github.com/rnystrom/ExpandingButtonBar/raw/master/images/base.png]
+(Expanded main button)[https://github.com/rnystrom/ExpandingButtonBar/raw/master/images/expanded.png]
+(Tableview button)[https://github.com/rnystrom/ExpandingButtonBar/raw/master/images/table.png]
+
 ### Installation
 
 Just drag and drop the ExpandingButtonBar.h and ExpandingButtonBar.m files into your project and you are ready to go. Both files were designed to use ARC technologies so you will need to use this widget in an ARC enabled environment, which requires iOS SDK 5+.
@@ -73,4 +77,4 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-http://www.opensource.org/licenses/Mopyright (C) 2012 Ryan Nystrom
+http://www.opensource.org/licenses/Mopyright
