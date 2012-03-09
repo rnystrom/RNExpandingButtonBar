@@ -11,6 +11,7 @@
     
     /* ---------------------------------------------------------
      * Custom code to let us have a fixed view overtop the UITableView.
+     * I'm no UITableView expert, just the way I decided to demo this.
      * ---------------------------------------------------------*/
     if ( ! _tableView &&
         [[self view] isKindOfClass:[UITableView class]]) {
