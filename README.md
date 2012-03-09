@@ -20,9 +20,9 @@ The widget is customizable using the following methods:
     - (id) initWithImage:(UIImage*)image 
            selectedImage:(UIImage*)selectedImage 
             toggledImage:(UIImage*)toggledImage 
-   toggledSelectedImage:(UIImage*)toggledSelectedImage 
-                buttons:(NSArray*)buttons 
-                 center:(CGPoint)center;
+    toggledSelectedImage:(UIImage*)toggledSelectedImage 
+                 buttons:(NSArray*)buttons 
+                  center:(CGPoint)center;
 
 Creates and returns the instance of ExpandingButtonBar. Pass it four images for the normal and toggled buttons. You can also pass selected images for each state. Next you pass an NSArray of buttons that you want to be animated into view. This can be any type of button that responds to any method that you wish. Finally, send a coordinate for the center of the view.
 
