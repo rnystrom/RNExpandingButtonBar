@@ -69,6 +69,11 @@
     BOOL _spin;
     
     /* ---------------------------------------------------------
+     * Public. Whether or not to explode the button when touched.
+     * -------------------------------------------------------*/
+    BOOL _explode;
+    
+    /* ---------------------------------------------------------
      * Public. Toggle the horizontal animation.
      * -------------------------------------------------------*/
     BOOL _horizontal;
@@ -107,6 +112,8 @@ toggledSelectedImage:(UIImage*)toggledSelectedImage
 - (int) getXoffset:(UIView*)view;
 - (int) getYoffset:(UIView*)view;
 
+- (void) explode:(id)sender;
+
 - (void) setAnimationTime:(float)time;
 - (void) setFadeTime:(float)time;
 - (void) setPadding:(float)padding;
@@ -115,6 +122,7 @@ toggledSelectedImage:(UIImage*)toggledSelectedImage
 - (void) setFar:(float)num;
 - (void) setNear:(float)num;
 - (void) setDelay:(float)num;
+- (void) setExplode:(BOOL)b;
 
 @end
 

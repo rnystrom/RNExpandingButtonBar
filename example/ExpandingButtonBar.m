@@ -13,9 +13,33 @@
  * -------------------------------------------------------*/
 #import "ExpandingButtonBar.h"
 
+//@interface ExpandingButton : UIButton
+//
+//@property (nonatomic, strong) UIView *test;
+//
+//@end
+//
+//@implementation ExpandingButton
+//
+//@synthesize test;
+//
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"touches began");
+//    [super touchesBegan:touches withEvent:event];
+//}
+//
+//-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSLog(@"touches ended");
+//    [super touchesEnded:touches withEvent:event];
+//}
+//
+//@end
+
 @interface ExpandingButtonBar ()
 - (void) _expand:(NSDictionary*)properties;
-- (void) _close: (UIView*)view center:(CGPoint)center;
+- (void) _close:(NSDictionary*)properties;
 @end
 
 @implementation ExpandingButtonBar
@@ -54,7 +78,9 @@
         [toggledButton setAlpha:0.0f];
         [self setToggledButton:toggledButton];
         
-        for (UIButton *button in [self buttons]) {
+        for (int i = 0; i < [buttons count]; ++i) {
+            UIButton *button = (UIButton*)[buttons objectAtIndex:i];
+            [button addTarget:self action:@selector(explode:) forControlEvents:UIControlEventTouchUpInside];
             [button setCenter:buttonCenter];
             [button setAlpha:0.0f];
             [self addSubview:button];
@@ -124,6 +150,20 @@
     }];
 }
 
+- (void) explode:(id)sender
+{
+    if (! _explode) return;
+    UIView *view = (UIView*)sender;
+    CGAffineTransform scale = CGAffineTransformMakeScale(5.0f, 5.0f);
+    CGAffineTransform unScale = CGAffineTransformMakeScale(1.0f, 1.0f);
+    [UIView animateWithDuration:0.3 animations:^{
+        [view setAlpha:0.0f];
+        [view setTransform:scale];
+    } completion:^(BOOL finished){
+        [view setAlpha:1.0f];
+        [view setTransform:unScale];
+    }];
+}
     
 - (void) showButtonsAnimated:(BOOL)animated
 {
@@ -334,6 +374,16 @@
     _delay = num;
 }
 
+- (void) setExplode:(BOOL)b
+{
+    _explode = b;
+}
+
+/* ----------------------------------------------
+ * DO NOT CHANGE
+ * The following is a hack to allow touches outside
+ * of this view. Use caution when changing.
+ * --------------------------------------------*/
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event 
 {
     UIView *v = nil;
@@ -344,6 +394,9 @@
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event 
 {
     BOOL isInside = [super pointInside:point withEvent:event];    
+    if (YES == isInside) {
+        return isInside;
+    }
     for (UIButton *button in [self buttons]) {
         CGPoint inButtonSpace = [self convertPoint:point toView:button];    
         BOOL isInsideButton = [button pointInside:inButtonSpace withEvent:nil];

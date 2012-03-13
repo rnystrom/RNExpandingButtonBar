@@ -47,6 +47,7 @@
     
     ExpandingButtonBar *bar = [[ExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
     [bar setHorizontal:YES];
+    [bar setExplode:YES];
     [[self view] addSubview:bar];
     [self setBar:bar];
     
