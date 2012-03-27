@@ -14,11 +14,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@protocol ExpandingButtonBarDelegate;
+@protocol RNExpandingButtonBarDelegate;
 
-@interface ExpandingButtonBar : UIView
+@interface RNExpandingButtonBar : UIView
 {
-    NSObject <ExpandingButtonBarDelegate> *_delegate;
+    NSObject <RNExpandingButtonBarDelegate> *_delegate;
     
     /* ---------------------------------------------------------
      * All of the buttons that are animated by pressing the main button.
@@ -89,7 +89,7 @@
 @property (nonatomic, strong) NSArray *buttons;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIButton *toggledButton;
-@property (nonatomic, strong) NSObject <ExpandingButtonBarDelegate> *delegate;
+@property (nonatomic, strong) NSObject <RNExpandingButtonBarDelegate> *delegate;
 
 - (id) initWithImage:(UIImage*)image 
        selectedImage:(UIImage*)selectedImage 
@@ -126,11 +126,11 @@ toggledSelectedImage:(UIImage*)toggledSelectedImage
 
 @end
 
-@protocol ExpandingButtonBarDelegate <NSObject>
+@protocol RNExpandingButtonBarDelegate <NSObject>
 
-- (void) expandingBarWillAppear:(ExpandingButtonBar*)bar;
-- (void) expandingBarDidAppear:(ExpandingButtonBar *)bar;
-- (void) expandingBarWillDisappear:(ExpandingButtonBar *)bar;
-- (void) expandingBarDidDisappear:(ExpandingButtonBar *)bar;
+- (void) expandingBarWillAppear:(RNExpandingButtonBar*)bar;
+- (void) expandingBarDidAppear:(RNExpandingButtonBar *)bar;
+- (void) expandingBarWillDisappear:(RNExpandingButtonBar *)bar;
+- (void) expandingBarDidDisappear:(RNExpandingButtonBar *)bar;
 
 @end

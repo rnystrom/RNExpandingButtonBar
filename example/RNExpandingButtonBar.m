@@ -11,7 +11,7 @@
  *
  * http://www.opensource.org/licenses/MIT
  * -------------------------------------------------------*/
-#import "ExpandingButtonBar.h"
+#import "RNExpandingButtonBar.h"
 
 //@interface ExpandingButton : UIButton
 //
@@ -37,12 +37,12 @@
 //
 //@end
 
-@interface ExpandingButtonBar ()
+@interface RNExpandingButtonBar ()
 - (void) _expand:(NSDictionary*)properties;
 - (void) _close:(NSDictionary*)properties;
 @end
 
-@implementation ExpandingButtonBar
+@implementation RNExpandingButtonBar
 
 @synthesize buttons = _buttons;
 @synthesize button = _button;

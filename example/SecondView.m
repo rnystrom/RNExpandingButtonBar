@@ -45,7 +45,7 @@
     [b3 setFrame:buttonFrame];
     NSArray *buttons = [NSArray arrayWithObjects:b1, b2, b3, nil];
     
-    ExpandingButtonBar *bar = [[ExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
+    RNExpandingButtonBar *bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
     [bar setHorizontal:YES];
     [bar setExplode:YES];
     [[self view] addSubview:bar];

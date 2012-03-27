@@ -1,14 +1,14 @@
 #import <UIKit/UIKit.h>
-#import "ExpandingButtonBar.h"
+#import "RNExpandingButtonBar.h"
 #import "SecondView.h"
 
 @interface FirstView : UIViewController
-<ExpandingButtonBarDelegate>
+<RNExpandingButtonBarDelegate>
 {
-    ExpandingButtonBar *_bar;
+    RNExpandingButtonBar *_bar;
 }
 
-@property (nonatomic, strong) ExpandingButtonBar *bar;
+@property (nonatomic, strong) RNExpandingButtonBar *bar;
 
 - (void) onNext;
 - (void) onAlert;

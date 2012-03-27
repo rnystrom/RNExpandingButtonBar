@@ -30,7 +30,7 @@
     CGRect buttonFrame = CGRectMake(0, 0, 32.0f, 32.0f);
     UIButton *b1 = [UIButton buttonWithType:UIButtonTypeCustom];
     [b1 setFrame:buttonFrame];
-    [b1 setImage:[UIImage imageNamed:@"next_circle.png"] forState:UIControlStateNormal];
+    [b1 setImage:[UIImage imageNamed:@"next.png"] forState:UIControlStateNormal];
     [b1 addTarget:self action:@selector(onNext) forControlEvents:UIControlEventTouchUpInside];
     UIButton *b2 = [UIButton buttonWithType:UIButtonTypeCustom];
     [b2 setImage:[UIImage imageNamed:@"lightbulb.png"] forState:UIControlStateNormal];
@@ -45,7 +45,7 @@
     /* ---------------------------------------------------------
      * Init method, passing everything the bar needs to work
      * -------------------------------------------------------*/
-    ExpandingButtonBar *bar = [[ExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
+    RNExpandingButtonBar *bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
     
     /* ---------------------------------------------------------
      * Settings
@@ -93,22 +93,22 @@
 /* ---------------------------------------------------------
  * Delegate methods of ExpandingButtonBarDelegate
  * -------------------------------------------------------*/
-- (void) expandingBarDidAppear:(ExpandingButtonBar *)bar
+- (void) expandingBarDidAppear:(RNExpandingButtonBar *)bar
 {
     NSLog(@"did appear");
 }
 
-- (void) expandingBarWillAppear:(ExpandingButtonBar *)bar
+- (void) expandingBarWillAppear:(RNExpandingButtonBar *)bar
 {
     NSLog(@"will appear");
 }
 
-- (void) expandingBarDidDisappear:(ExpandingButtonBar *)bar
+- (void) expandingBarDidDisappear:(RNExpandingButtonBar *)bar
 {
     NSLog(@"did disappear");
 }
 
-- (void) expandingBarWillDisappear:(ExpandingButtonBar *)bar
+- (void) expandingBarWillDisappear:(RNExpandingButtonBar *)bar
 {
     NSLog(@"will disappear");
 }

@@ -21,7 +21,7 @@
 		EC818091150574EB0016B6C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC818090150574EB0016B6C1 /* main.m */; };
 		EC818095150574EB0016B6C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC818094150574EB0016B6C1 /* AppDelegate.m */; };
 		EC81809D150575820016B6C1 /* FirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81809C150575820016B6C1 /* FirstView.m */; };
-		EC8180A3150575EC0016B6C1 /* ExpandingButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8180A2150575EC0016B6C1 /* ExpandingButtonBar.m */; };
+		EC8180A3150575EC0016B6C1 /* RNExpandingButtonBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8180A2150575EC0016B6C1 /* RNExpandingButtonBar.m */; };
 		EC8180B3150586210016B6C1 /* red_plus_down.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8180A7150586210016B6C1 /* red_plus_down.png */; };
 		EC8180B4150586210016B6C1 /* red_plus_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8180A8150586210016B6C1 /* red_plus_down@2x.png */; };
 		EC8180B5150586210016B6C1 /* red_plus_up.png in Resources */ = {isa = PBXBuildFile; fileRef = EC8180A9150586210016B6C1 /* red_plus_up.png */; };
@@ -53,8 +53,8 @@
 		EC818094150574EB0016B6C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ExpandingBarExample/AppDelegate.m; sourceTree = "<group>"; };
 		EC81809B150575820016B6C1 /* FirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstView.h; path = ExpandingBarExample/FirstView.h; sourceTree = "<group>"; };
 		EC81809C150575820016B6C1 /* FirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstView.m; path = ExpandingBarExample/FirstView.m; sourceTree = "<group>"; };
-		EC8180A1150575EC0016B6C1 /* ExpandingButtonBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandingButtonBar.h; sourceTree = "<group>"; };
-		EC8180A2150575EC0016B6C1 /* ExpandingButtonBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandingButtonBar.m; sourceTree = "<group>"; };
+		EC8180A1150575EC0016B6C1 /* RNExpandingButtonBar.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RNExpandingButtonBar.h; sourceTree = "<group>"; };
+		EC8180A2150575EC0016B6C1 /* RNExpandingButtonBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNExpandingButtonBar.m; sourceTree = "<group>"; };
 		EC8180A7150586210016B6C1 /* red_plus_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_plus_down.png; sourceTree = "<group>"; };
 		EC8180A8150586210016B6C1 /* red_plus_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_plus_down@2x.png"; sourceTree = "<group>"; };
 		EC8180A9150586210016B6C1 /* red_plus_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_plus_up.png; sourceTree = "<group>"; };
@@ -101,10 +101,10 @@
 			children = (
 				EC81809B150575820016B6C1 /* FirstView.h */,
 				EC81809C150575820016B6C1 /* FirstView.m */,
-				EC818083150574EB0016B6C1 /* Frameworks */,
-				EC8180A4150586210016B6C1 /* Graphics */,
 				EC8ABE981506B4B700D1C711 /* SecondView.h */,
 				EC8ABE991506B4B700D1C711 /* SecondView.m */,
+				EC818083150574EB0016B6C1 /* Frameworks */,
+				EC8180A4150586210016B6C1 /* Graphics */,
 				EC5D720815095D0A00AADAF6 /* System */,
 			);
 			sourceTree = "<group>";
@@ -120,8 +120,8 @@
 		EC818083150574EB0016B6C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC8180A1150575EC0016B6C1 /* ExpandingButtonBar.h */,
-				EC8180A2150575EC0016B6C1 /* ExpandingButtonBar.m */,
+				EC8180A1150575EC0016B6C1 /* RNExpandingButtonBar.h */,
+				EC8180A2150575EC0016B6C1 /* RNExpandingButtonBar.m */,
 				EC2EC4CE15081D58005C3F7B /* QuartzCore.framework */,
 				EC818084150574EB0016B6C1 /* UIKit.framework */,
 				EC818086150574EB0016B6C1 /* Foundation.framework */,
@@ -231,7 +231,7 @@
 				EC818091150574EB0016B6C1 /* main.m in Sources */,
 				EC818095150574EB0016B6C1 /* AppDelegate.m in Sources */,
 				EC81809D150575820016B6C1 /* FirstView.m in Sources */,
-				EC8180A3150575EC0016B6C1 /* ExpandingButtonBar.m in Sources */,
+				EC8180A3150575EC0016B6C1 /* RNExpandingButtonBar.m in Sources */,
 				EC8ABE9A1506B4B700D1C711 /* SecondView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
