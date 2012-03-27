@@ -5,7 +5,7 @@ RNExpandingButtonBar is a simple iOS widget created by Ryan Nystrom. The widget 
 
 Inspiration for this button bar came from the app Path in which they practically removed the need for a UITabBar by adding a button in the bottom left. The goal with this widget is to replicate that functionality and give you the option of using buttons that animate in and out to reclaim some much needed UI space.
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/zOimiztCycY" frameborder="0" allowfullscreen></iframe>
+[View a demo video on YouTube](http://www.youtube.com/watch?v=zOimiztCycY)
 
 <img src="https://github.com/rnystrom/RNExpandingButtonBar/raw/master/images/base.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
 <img src="https://github.com/rnystrom/RNExpandingButtonBar/raw/master/images/expanded.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
