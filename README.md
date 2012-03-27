@@ -1,19 +1,19 @@
-Expanding Button Bar
+RNExpandingButtonBar
 =========
 
-Expanding Button Bar is a simple iOS widget created by Ryan Nystrom. The widget is designed to be highly portable and customizable. There are no default images or buttons. Everything that you want to use as buttons should be customly made.
+RNExpandingButtonBar is a simple iOS widget created by Ryan Nystrom. The widget is designed to be highly portable and customizable. There are no default images or buttons. Everything that you want to use as buttons should be customly made.
 
 Inspiration for this button bar came from the app Path in which they practically removed the need for a UITabBar by adding a button in the bottom left. The goal with this widget is to replicate that functionality and give you the option of using buttons that animate in and out to reclaim some much needed UI space.
 
 <iframe width="420" height="315" src="http://www.youtube.com/embed/zOimiztCycY" frameborder="0" allowfullscreen></iframe>
 
-<img src="https://github.com/rnystrom/ExpandingButtonBar/raw/master/images/base.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
-<img src="https://github.com/rnystrom/ExpandingButtonBar/raw/master/images/expanded.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
-<img src="https://github.com/rnystrom/ExpandingButtonBar/raw/master/images/table.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
+<img src="https://github.com/rnystrom/RNExpandingButtonBar/raw/master/images/base.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
+<img src="https://github.com/rnystrom/RNExpandingButtonBar/raw/master/images/expanded.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
+<img src="https://github.com/rnystrom/RNExpandingButtonBar/raw/master/images/table.png" width="200" style="box-shadow: 2px 2px 5px #000; margin: 0 15px;" />
 
 ### Installation
 
-Just drag and drop the ExpandingButtonBar.h and ExpandingButtonBar.m files into your project and you are ready to go. Both files were designed to use ARC technologies so you will need to use this widget in an ARC enabled environment, which requires iOS SDK 5+.
+Just drag and drop the RNExpandingButtonBar.h and RNExpandingButtonBar.m files into your project and you are ready to go. Both files were designed to use ARC technologies so you will need to use this widget in an ARC enabled environment, which requires iOS SDK 5+.
 
 ### Usage
 
@@ -26,16 +26,16 @@ The widget is customizable using the following methods:
                  buttons:(NSArray*)buttons 
                   center:(CGPoint)center;
 
-Creates and returns the instance of ExpandingButtonBar. Pass it four images for the normal and toggled buttons. You can also pass selected images for each state. Next you pass an NSArray of buttons that you want to be animated into view. This can be any type of button that responds to any method that you wish. Finally, send a coordinate for the center of the view.
+Creates and returns the instance of RNExpandingButtonBar. Pass it four images for the normal and toggled buttons. You can also pass selected images for each state. Next you pass an NSArray of buttons that you want to be animated into view. This can be any type of button that responds to any method that you wish. Finally, send a coordinate for the center of the view.
 
-Then, since ExpandingButtonBar is a subclass of UIView, add the bar to your view with a simple <code>-addSubview</code> from your main view controller. To show or hide the buttons that were passed after initialization, call:
+Then, since RNExpandingButtonBar is a subclass of UIView, add the bar to your view with a simple <code>-addSubview</code> from your main view controller. To show or hide the buttons that were passed after initialization, call:
 
     -showButtonsAnimated:(BOOL)animated
     -hideButtonsAnimated:(BOOL)animated
 
 ### Customizing
 
-There are many properties of the ExpandingButtonBar that are customizable. 
+There are many properties of the RNExpandingButtonBar that are customizable. 
 
     - (void) setAnimationTime:(float)time;
 
