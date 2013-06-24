@@ -14,11 +14,11 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@protocol ExpandingButtonBarDelegate;
+@protocol RNExpandingButtonBarDelegate;
 
-@interface ExpandingButtonBar : UIView
+@interface RNExpandingButtonBar : UIView
 {
-    NSObject <ExpandingButtonBarDelegate> *_delegate;
+    NSObject <RNExpandingButtonBarDelegate> *_delegate;
     
     /* ---------------------------------------------------------
      * All of the buttons that are animated by pressing the main button.
@@ -31,10 +31,10 @@
     UIButton *_button;
     
     /* ---------------------------------------------------------
-     * Button that is shown after pressed. Fades in. 
+     * Button that is shown after pressed. Fades in.
      * -------------------------------------------------------*/
     UIButton *_toggledButton;
-
+    
     /* ---------------------------------------------------------
      * Public. Time for each button to animate into view in seconds.
      * -------------------------------------------------------*/
@@ -79,6 +79,12 @@
     BOOL _horizontal;
     
     /* ---------------------------------------------------------
+     * Public. Inverts the direction (to the left if horizontal,
+     * down if vertical).
+     * -------------------------------------------------------*/
+    BOOL _inverted;
+    
+    /* ---------------------------------------------------------
      * Public. Whether to animate the buttons in and out.
      * -------------------------------------------------------*/
     BOOL _animated;
@@ -89,13 +95,13 @@
 @property (nonatomic, strong) NSArray *buttons;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIButton *toggledButton;
-@property (nonatomic, strong) NSObject <ExpandingButtonBarDelegate> *delegate;
+@property (nonatomic, strong) NSObject <RNExpandingButtonBarDelegate> *delegate;
 
-- (id) initWithImage:(UIImage*)image 
-       selectedImage:(UIImage*)selectedImage 
-        toggledImage:(UIImage*)toggledImage 
-toggledSelectedImage:(UIImage*)toggledSelectedImage 
-             buttons:(NSArray*)buttons 
+- (id) initWithImage:(UIImage*)image
+       selectedImage:(UIImage*)selectedImage
+        toggledImage:(UIImage*)toggledImage
+toggledSelectedImage:(UIImage*)toggledSelectedImage
+             buttons:(NSArray*)buttons
               center:(CGPoint)center;
 
 - (void) setDefaults;
@@ -123,14 +129,15 @@ toggledSelectedImage:(UIImage*)toggledSelectedImage
 - (void) setNear:(float)num;
 - (void) setDelay:(float)num;
 - (void) setExplode:(BOOL)b;
+- (void) setInverted:(BOOL)inverted;
 
 @end
 
-@protocol ExpandingButtonBarDelegate <NSObject>
+@protocol RNExpandingButtonBarDelegate <NSObject>
 
-- (void) expandingBarWillAppear:(ExpandingButtonBar*)bar;
-- (void) expandingBarDidAppear:(ExpandingButtonBar *)bar;
-- (void) expandingBarWillDisappear:(ExpandingButtonBar *)bar;
-- (void) expandingBarDidDisappear:(ExpandingButtonBar *)bar;
+- (void) expandingBarWillAppear:(RNExpandingButtonBar*)bar;
+- (void) expandingBarDidAppear:(RNExpandingButtonBar *)bar;
+- (void) expandingBarWillDisappear:(RNExpandingButtonBar *)bar;
+- (void) expandingBarDidDisappear:(RNExpandingButtonBar *)bar;
 
 @end

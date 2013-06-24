@@ -11,7 +11,7 @@
  *
  * http://www.opensource.org/licenses/MIT
  * -------------------------------------------------------*/
-#import "ExpandingButtonBar.h"
+#import "RNExpandingButtonBar.h"
 
 //@interface ExpandingButton : UIButton
 //
@@ -37,12 +37,12 @@
 //
 //@end
 
-@interface ExpandingButtonBar ()
+@interface RNExpandingButtonBar ()
 - (void) _expand:(NSDictionary*)properties;
 - (void) _close:(NSDictionary*)properties;
 @end
 
-@implementation ExpandingButtonBar
+@implementation RNExpandingButtonBar
 
 @synthesize buttons = _buttons;
 @synthesize button = _button;
@@ -90,7 +90,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
         [self setFrame:buttonFrame];
         [self setCenter:center];
-                
+        
         [self addSubview:[self button]];
         [self addSubview:[self toggledButton]];
     }
@@ -113,7 +113,7 @@
 }
 
 - (void) onButton:(id)sender
-{    
+{
     [self showButtonsAnimated:_animated];
 }
 
@@ -142,7 +142,7 @@
     }
     else {
         animateTo = [self toggledButton];
-        animateFrom = [self button];        
+        animateFrom = [self button];
     }
     [UIView animateWithDuration:_fadeTime animations:^{
         [animateTo setAlpha:1.0f];
@@ -164,7 +164,7 @@
         [view setTransform:unScale];
     }];
 }
-    
+
 - (void) showButtonsAnimated:(BOOL)animated
 {
     if ([self delegate] && [[self delegate] respondsToSelector:@selector(expandingBarWillAppear:)]) {
@@ -176,8 +176,14 @@
     float endX = x;
     for (int i = 0; i < [[self buttons] count]; ++i) {
         UIButton *button = [[self buttons] objectAtIndex:i];
-        endY -= [self getYoffset:button];
-        endX += [self getXoffset:button];
+        if (!_inverted) {
+            endY -= [self getYoffset:button];
+            endX += [self getXoffset:button];
+        } else {
+            endY += [self getYoffset:button];
+            endX -= [self getXoffset:button];
+        }
+        
         float farY = endY - ( ! _horizontal ? _far : 0.0f);
         float farX = endX - (_horizontal ? _far : 0.0f);
         float nearY = endY + ( ! _horizontal ? _near : 0.0f);
@@ -190,15 +196,15 @@
                 [rotateAnimation setDuration:_animationTime];
                 [rotateAnimation setKeyTimes:[NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:1.0f], nil]];
                 [animationOptions addObject:rotateAnimation];
-            }        
+            }
             
             CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
             [positionAnimation setDuration:_animationTime];
             CGMutablePathRef path = CGPathCreateMutable();
             CGPathMoveToPoint(path, NULL, x, y);
             CGPathAddLineToPoint(path, NULL, farX, farY);
-            CGPathAddLineToPoint(path, NULL, nearX, nearY); 
-            CGPathAddLineToPoint(path, NULL, endX, endY); 
+            CGPathAddLineToPoint(path, NULL, nearX, nearY);
+            CGPathAddLineToPoint(path, NULL, endX, endY);
             [positionAnimation setPath: path];
             CGPathRelease(path);
             
@@ -209,7 +215,7 @@
             [animationGroup setDuration:_animationTime];
             [animationGroup setFillMode: kCAFillModeForwards];
             [animationGroup setTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
-
+            
             NSDictionary *properties = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:button, [NSValue valueWithCGPoint:CGPointMake(endX, endY)], animationGroup, nil] forKeys:[NSArray arrayWithObjects:@"view", @"center", @"animation", nil]];
             [self performSelector:@selector(_expand:) withObject:properties afterDelay:_delay * ([[self buttons] count] - i)];
         }
@@ -244,7 +250,7 @@
                 [rotateAnimation setDuration:_animationTime];
                 [rotateAnimation setKeyTimes:[NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0f], [NSNumber numberWithFloat:1.0f], nil]];
                 [animationOptions addObject:rotateAnimation];
-            }        
+            }
             
             CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
             [opacityAnimation setValues:[NSArray arrayWithObjects:[NSNumber numberWithFloat:1.0f], [NSNumber numberWithFloat:0.0f], nil]];
@@ -252,12 +258,12 @@
             [animationOptions addObject:opacityAnimation];
             
             float y = [button center].y;
-            float x = [button center].x;            
+            float x = [button center].x;
             CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
             [positionAnimation setDuration:_animationTime];
             CGMutablePathRef path = CGPathCreateMutable();
             CGPathMoveToPoint(path, NULL, x, y);
-            CGPathAddLineToPoint(path, NULL, endX, endY); 
+            CGPathAddLineToPoint(path, NULL, endX, endY);
             [positionAnimation setPath: path];
             CGPathRelease(path);
             
@@ -274,7 +280,7 @@
         }
         else {
             [button setCenter:center];
-            [button setAlpha:0.0f];            
+            [button setAlpha:0.0f];
         }
     }
     float delegateDelay = _animated ? [[self buttons] count] * _delay + _animationTime: 0.0f;
@@ -359,6 +365,11 @@
     _horizontal = b;
 }
 
+- (void) setInverted:(BOOL)inverted
+{
+    _inverted = inverted;
+}
+
 - (void) setFar:(float)num
 {
     _far = num;
@@ -384,21 +395,21 @@
  * The following is a hack to allow touches outside
  * of this view. Use caution when changing.
  * --------------------------------------------*/
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event 
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *v = nil;
-    v = [super hitTest:point withEvent:event];   
+    v = [super hitTest:point withEvent:event];
     return v;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
-    BOOL isInside = [super pointInside:point withEvent:event];    
+    BOOL isInside = [super pointInside:point withEvent:event];
     if (YES == isInside) {
         return isInside;
     }
     for (UIButton *button in [self buttons]) {
-        CGPoint inButtonSpace = [self convertPoint:point toView:button];    
+        CGPoint inButtonSpace = [self convertPoint:point toView:button];
         BOOL isInsideButton = [button pointInside:inButtonSpace withEvent:nil];
         if (YES == isInsideButton) {
             return isInsideButton;
