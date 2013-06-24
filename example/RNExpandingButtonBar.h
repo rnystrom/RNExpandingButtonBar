@@ -31,10 +31,10 @@
     UIButton *_button;
     
     /* ---------------------------------------------------------
-     * Button that is shown after pressed. Fades in. 
+     * Button that is shown after pressed. Fades in.
      * -------------------------------------------------------*/
     UIButton *_toggledButton;
-
+    
     /* ---------------------------------------------------------
      * Public. Time for each button to animate into view in seconds.
      * -------------------------------------------------------*/
@@ -79,6 +79,12 @@
     BOOL _horizontal;
     
     /* ---------------------------------------------------------
+     * Public. Inverts the direction (to the left if horizontal,
+     * down if vertical).
+     * -------------------------------------------------------*/
+    BOOL _inverted;
+    
+    /* ---------------------------------------------------------
      * Public. Whether to animate the buttons in and out.
      * -------------------------------------------------------*/
     BOOL _animated;
@@ -91,11 +97,11 @@
 @property (nonatomic, strong) UIButton *toggledButton;
 @property (nonatomic, strong) NSObject <RNExpandingButtonBarDelegate> *delegate;
 
-- (id) initWithImage:(UIImage*)image 
-       selectedImage:(UIImage*)selectedImage 
-        toggledImage:(UIImage*)toggledImage 
-toggledSelectedImage:(UIImage*)toggledSelectedImage 
-             buttons:(NSArray*)buttons 
+- (id) initWithImage:(UIImage*)image
+       selectedImage:(UIImage*)selectedImage
+        toggledImage:(UIImage*)toggledImage
+toggledSelectedImage:(UIImage*)toggledSelectedImage
+             buttons:(NSArray*)buttons
               center:(CGPoint)center;
 
 - (void) setDefaults;
@@ -123,6 +129,7 @@ toggledSelectedImage:(UIImage*)toggledSelectedImage
 - (void) setNear:(float)num;
 - (void) setDelay:(float)num;
 - (void) setExplode:(BOOL)b;
+- (void) setInverted:(BOOL)inverted;
 
 @end
 

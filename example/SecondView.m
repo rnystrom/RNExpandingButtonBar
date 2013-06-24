@@ -23,7 +23,7 @@
     [[self view] addSubview:[self tableView]];
     
     [self setTitle:@"UITableView"];
- 
+    
     /* ---------------------------------------------------------
      * Now we've changed [self view] to contain our tableView and our bar.
      * ---------------------------------------------------------*/
@@ -31,7 +31,7 @@
     UIImage *selectedImage = [UIImage imageNamed:@"red_plus_down.png"];
     UIImage *toggledImage = [UIImage imageNamed:@"red_x_up.png"];
     UIImage *toggledSelectedImage = [UIImage imageNamed:@"red_x_down.png"];
-    CGPoint center = CGPointMake(30.0f, 370.0f);
+    CGPoint center = CGPointMake(280.0f, 370.0f);
     
     CGRect buttonFrame = CGRectMake(0, 0, 50.0f, 50.0f);
     UIButton *b1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -48,6 +48,7 @@
     RNExpandingButtonBar *bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
     [bar setHorizontal:YES];
     [bar setExplode:YES];
+    [bar setInverted:YES];
     [[self view] addSubview:bar];
     [self setBar:bar];
     
